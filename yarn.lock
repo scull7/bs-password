@@ -22,6 +22,10 @@
   dependencies:
     jest "^22.0.4"
 
+"@glennsl/bs-json@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@glennsl/bs-json/-/bs-json-2.0.0.tgz#e621aac1e94d49bc12bf493b67c01c39e61a6415"
+
 "@samverschueren/stream-to-observable@^0.3.0":
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/@samverschueren/stream-to-observable/-/stream-to-observable-0.3.0.tgz#ecdf48d532c58ea477acfcab80348424f8d0662f"
@@ -382,6 +386,10 @@ bcrypt-pbkdf@^1.0.0:
   dependencies:
     tweetnacl "^0.14.3"
 
+bcryptjs@^2.4.3:
+  version "2.4.3"
+  resolved "https://registry.yarnpkg.com/bcryptjs/-/bcryptjs-2.4.3.tgz#9ab5627b93e60621ff7cdac5da9733027df1d0cb"
+
 brace-expansion@^1.1.7:
   version "1.1.11"
   resolved "https://registry.yarnpkg.com/brace-expansion/-/brace-expansion-1.1.11.tgz#3c7fcbf529d87226f3d2f52b966ff5271eb441dd"
@@ -421,6 +429,12 @@ browser-resolve@^1.11.2:
   resolved "https://registry.yarnpkg.com/browser-resolve/-/browser-resolve-1.11.2.tgz#8ff09b0a2c421718a1051c260b32e48f442938ce"
   dependencies:
     resolve "1.1.7"
+
+bs-bcrypt@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/bs-bcrypt/-/bs-bcrypt-2.0.0.tgz#62d730b6f1f5b1579747402eb2136a38a1cd6183"
+  dependencies:
+    bcryptjs "^2.4.3"
 
 bs-platform@^3.1.5:
   version "3.1.5"
@@ -2864,6 +2878,10 @@ realpath-native@^1.0.0:
   resolved "https://registry.yarnpkg.com/realpath-native/-/realpath-native-1.0.0.tgz#7885721a83b43bd5327609f0ddecb2482305fdf0"
   dependencies:
     util.promisify "^1.0.0"
+
+reason-future@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/reason-future/-/reason-future-2.2.1.tgz#35bb1f3e49f3bce14024b9c79a9ea6bc9fa1cd19"
 
 regenerator-runtime@^0.11.0:
   version "0.11.1"
