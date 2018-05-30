@@ -25,3 +25,6 @@ setup.log
 # Node
 node_modules
 yarn-error.log
+
+# ReasonML
+lib/
