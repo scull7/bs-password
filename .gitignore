@@ -21,3 +21,7 @@ setup.log
 
 # Merlin configuring file for Vim and Emacs
 .merlin
+
+# Node
+node_modules
+yarn-error.log
