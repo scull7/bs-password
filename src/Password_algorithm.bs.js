@@ -3,8 +3,8 @@
 
 var Pervasives = require("bs-platform/lib/js/pervasives.js");
 
-function fromString(x) {
-  switch (x) {
+function fromString(param) {
+  switch (param) {
     case "bcrypt" : 
         return /* Bcrypt */0;
     case "scrypt" : 
