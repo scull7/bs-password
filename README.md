@@ -31,7 +31,7 @@ Then add `bs-password` to your `bs-dependencies` in `bsconfig.json`
 let password = "This is my password";
 let algorithm = Password.Algorithm.Bcrypt;
 
-Password.deriveKey(algorithm, input, (result) => {
+Password.deriveKey(algorithm, password, (result) => {
   switch (result) {
   | Belt.Result.Error(e) => raise(e)
   | Belt.Result.Ok((salt, hash)) => Js.log3("Salt and Key", salt, hash)
@@ -45,10 +45,16 @@ Password.deriveKey(algorithm, input, (result) => {
 let password = "This is my passsword";
 let algorithm = Password.Algorithm.Bcrypt;
 
-Password.verify(algorithm, hash, password, (result) => {
+Password.deriveKey(algorithm, password, (result) => {
   switch (result) {
   | Belt.Result.Error(e) => raise(e)
-  | Belt.Result.Ok(isValid) => Js.log2("Is Valid: ", isValid)
+  | Belt.Result.Ok((_, hash)) =>
+    Password.verify(algorithm, hash, password, (result2) => {
+    switch (result) {
+    | Belt.Result.Error(e) => raise(e)
+    | Belt.Result.Ok(isValid) => Js.log2("isValid: ", isValid)
+    }
+    });
   };
 });
 ```
@@ -57,9 +63,9 @@ Password.verify(algorithm, hash, password, (result) => {
 
 ```reason
 let algorithm = Password.Algorithm.Bcrypt;
-let length = 8
+let length = 8;
 
-Password.token(algorithm, 8, (result) => {
+Password.token(algorithm, length, (result) => {
   switch(result) {
   | Belt.Result.Error(e) => raise(e)
   | Belt.Result.Ok(token) => Js.log2("Token: ", token)
@@ -116,6 +122,7 @@ Password.Promise.deriveKey(algorithm, password)
   | Belt.Result.Error(e) => raise(e)
   | Belt.Result.Ok((salt, hash)) => Js.log3("Salt and key: ", salt, hash)
   }
+  |> Js.Promise.resolve
 )
 ```
 
@@ -133,7 +140,9 @@ Password.Promise.deriveKey(algo, password)
   }
 )
 |> Js.Promise.then_(hash => Password.Promise.verify(algo, hash, password))
-|> Js.Promise.then_(isValid => Js.log2("Does Match: ", isValid)) 
+|> Js.Promise.then_(isValid =>
+  Js.log2("Does Match: ", isValid) |> Js.Promise.resolve
+) 
 ```
 
 3. Generate a random token.
@@ -142,7 +151,7 @@ Password.Promise.deriveKey(algo, password)
 let algo = Password.Algorithm.Bcrypt;
 
 Password.Promise.token(algo, 31)
-|> Js.Promise.then_(token => Js.log2("Token: ", token))
+|> Js.Promise.then_(token => Js.log2("Token: ", token) |> Js.Promise.resolve)
 ```
 
 

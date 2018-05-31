@@ -6,6 +6,7 @@
     "build": "bsb -make-world",
     "clean": "bsb -clean-world",
     "coverage": "nyc report --temp-directory=coverage --reporter=text-lcov | coveralls",
+    "docs": "OMD_DEBUG=false docre",
     "format": "bsrefmt --in-place",
     "precommit": "lint-staged",
     "start": "yarn install ; bsb -clean-world ; bsb -make-world -w",
