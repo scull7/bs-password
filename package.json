@@ -1,6 +1,6 @@
 {
   "name": "bs-password",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A password hashing library for ReasonML",
   "scripts": {
     "build": "bsb -make-world",
