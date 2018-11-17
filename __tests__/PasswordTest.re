@@ -48,7 +48,7 @@ describe("Bcrypt", () => {
 
   testAsync("Generate a token of a given length", finished => {
     let algo = Password.Algorithm.Bcrypt;
-    let re = [%re "/^\$2a\$08\$/"];
+    let re = [%re "/^\\$2a\\$08\\$/"];
 
     Password.token(algo, 8, result =>
       switch (result) {
@@ -92,7 +92,7 @@ describe("Bcrypt - Future", () => {
 
   testAsync("Generate a token of a given length", finish => {
     let algo = Password.Algorithm.Bcrypt;
-    let re = [%re "/^\$2a\$16\$/"];
+    let re = [%re "/^\\$2a\\$16\\$/"];
     Password.Future.token(algo, 16)
     |. Future.mapOk(token => Expect.expect(token) |> Expect.toMatchRe(re))
     |. Future.mapOk(x => finish(x))
@@ -148,7 +148,7 @@ describe("Bcrypt - Promise", () => {
   });
 
   testPromise("Generate a token of a given length", () => {
-    let re = [%re "/^\$2a\$31\$/"];
+    let re = [%re "/^\\$2a\\$31\\$/"];
 
     Password.Promise.token(algo, 42)
     |> Js.Promise.then_(result =>
